@@ -1,33 +1,51 @@
-export default function WeatherCard({ cityObj }) {
+import { getWeatherIcon } from "../utils/weatherIcons";
+import wind from "../assets/vent.png";
+import heart from "../assets/coeur.png";
+import heart_fill from "../assets/coeur_fill.png";
+
+export default function WeatherCard({ cityObj, isFavorite, onToggleFavorite }) {
   const { city, current } = cityObj;
 
   return (
-    <div style={cardStyle}>
-      <h2 style={{ margin: 0 }}>{city}</h2>
+    <div className="card weather-card">
+      <button
+        className="favorite-btn"
+        onClick={() => onToggleFavorite(city)}
+      >
+        {
+          isFavorite ? 
+          <img
+            src={heart_fill}
+            alt={current.condition}
+            style={{ width: 32, height: 32, marginTop: 2}}
+          /> : 
+          <img
+            src={heart}
+            alt={current.condition}
+            style={{ width: 32, height: 32, marginTop: 2}}
+          />
+        }
+      </button>
 
-      <div style={{ fontSize: 42, fontWeight: "bold" }}>
-        {current.temp}°C
-      </div>
+      <h2>{city}</h2>
+      <div className="temperature">{current.temp}°C</div>
+      <img
+        src={getWeatherIcon(current.condition)}
+        alt={current.condition}
+        style={{ width: 32, height: 32, marginLeft: 8, marginTop: 2}}
+      /> 
 
-      <p>{current.condition}</p>
-
-      <div style={infoRow}>
-        <span>💨 Vent : {current.wind} km/h</span>
-        <span>💧 Humidité : {current.humidity}%</span>
+      <div className="info-row">
+        <span>Vent 
+          <img
+            src={wind}
+            alt={current.condition}
+            style={{ width: 15, height: 15, marginLeft: 8, marginRight: 8, marginTop: 2}}
+          />
+          {current.wind} km/h
+        </span>
+        <span>Humidité 💧 {current.humidity}%</span>
       </div>
     </div>
   );
 }
-
-const cardStyle = {
-  border: "1px solid #ddd",
-  borderRadius: 16,
-  padding: 16,
-  background: "#fff",
-};
-
-const infoRow = {
-  display: "flex",
-  justifyContent: "space-between",
-  marginTop: 12,
-};

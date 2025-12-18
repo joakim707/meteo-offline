@@ -1,0 +1,91 @@
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.temperature {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.favorite-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  float: right;
+}
+
+.forecast-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.forecast-row:last-child {
+  border-bottom: none;
+}
+
+.forecast-condition {
+  color: #6b7280;
+}
+
+.city-search {
+  margin-bottom: 24px;
+}
+
+.city-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.city-input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.city-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.city-button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  background: #e5e7eb;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.city-button.active {
+  background: #111827;
+  color: white;
+}
+
+.city-button:hover {
+  transform: translateY(-2px);
+  background: #2563eb;
+  color: white;
+}
+
+.favorites-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}

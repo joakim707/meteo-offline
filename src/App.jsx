@@ -1,67 +1,95 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { weatherData } from "./data/weatherData";
 import WeatherCard from "./components/WeatherCard";
 import ForecastList from "./components/ForecastList";
+import CitySearch from "./components/CitySearch";
+import sun from './assets/soleil_1.png';
+import heart_fill from "./assets/coeur_fill.png";
 
 export default function App() {
-  const [selectedCity, setSelectedCity] = useState(weatherData[0].city);
+  const [selectedCity, setSelectedCity] = useState(
+    localStorage.getItem("city") || weatherData[0].city
+  );
+
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("favorites")) || []
+  );
+
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "light"
+  );
+
+  useEffect(() => {
+    document.body.classList.remove("light", "dark");
+    document.body.classList.add(theme);
+  }, [theme]);
+
+  const cities = weatherData.map((c) => c.city);
 
   const cityObj =
     weatherData.find((c) => c.city === selectedCity) || weatherData[0];
 
+  const toggleFavorite = (city) => {
+    const updated = favorites.includes(city)
+      ? favorites.filter((c) => c !== city)
+      : [...favorites, city];
+
+    setFavorites(updated);
+    localStorage.setItem("favorites", JSON.stringify(updated));
+  };
+
+  const toggleTheme = () => {
+    const next = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    localStorage.setItem("theme", next);
+  };
+
+  const handleSelectCity = (city) => {
+    setSelectedCity(city);
+    localStorage.setItem("city", city);
+  };
+
   return (
-    <div style={appStyle}>
-      <h1>Météo Offline</h1>
+    <div className="app">
+      <header className="app-header">
+        <h1>
+          Météo 
+          <img src={sun} alt="Soleil" style={{ width: 40, height: 40 }} />
+        </h1>
+        <button className="theme-toggle" onClick={toggleTheme}>
+          {theme === "light" ? "🌙" : "☀️"}
+        </button>
+      </header>
 
-      <div style={buttonRow}>
-        {weatherData.map((city) => (
-          <button
-            key={city.city}
-            onClick={() => setSelectedCity(city.city)}
-            style={{
-              ...buttonStyle,
-              background:
-                selectedCity === city.city ? "#333" : "#eee",
-              color:
-                selectedCity === city.city ? "#fff" : "#000",
-            }}
-          >
-            {city.city}
-          </button>
-        ))}
-      </div>
+      {favorites.length > 0 && (
+        <div className="favorites-bar">
+          {favorites.map((city) => (
+            <button
+              key={city}
+              onClick={() => handleSelectCity(city)}
+              className="city-button active"
+            >
+              <img src={heart_fill} alt="Soleil" style={{ width: 14, height: 13, marginRight: 5 }} /> 
+              {city}
+            </button>
+          ))}
+        </div>
+      )}
 
-      <div style={contentGrid}>
-        <WeatherCard cityObj={cityObj} />
+      <CitySearch
+        cities={cities}
+        selectedCity={selectedCity}
+        onSelectCity={handleSelectCity}
+      />
+
+      <div className="content-grid">
+        <WeatherCard
+          cityObj={cityObj}
+          isFavorite={favorites.includes(cityObj.city)}
+          onToggleFavorite={toggleFavorite}
+        />
         <ForecastList forecast={cityObj.forecast} />
       </div>
     </div>
   );
 }
-
-const appStyle = {
-  minHeight: "100vh",
-  padding: 20,
-  fontFamily: "Arial, sans-serif",
-  background: "#f4f6f8",
-};
-
-const buttonRow = {
-  display: "flex",
-  gap: 10,
-  marginBottom: 20,
-  flexWrap: "wrap",
-};
-
-const buttonStyle = {
-  padding: "8px 14px",
-  borderRadius: 20,
-  border: "none",
-  cursor: "pointer",
-};
-
-const contentGrid = {
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gap: 20,
-};
