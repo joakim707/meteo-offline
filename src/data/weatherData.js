@@ -1,0 +1,222 @@
+export const weatherData = [
+  {
+    city: "Paris",
+    current: { temp: 8, condition: "Nuageux", wind: 18, humidity: 72 },
+    forecast: [
+      { day: "Ven", temp: 7, condition: "Pluie" },
+      { day: "Sam", temp: 6, condition: "Nuageux" },
+      { day: "Dim", temp: 8, condition: "Éclaircies" },
+      { day: "Lun", temp: 9, condition: "Soleil" },
+      { day: "Mar", temp: 8, condition: "Pluie" },
+    ],
+  },
+  {
+    city: "Lyon",
+    current: { temp: 6, condition: "Pluie", wind: 12, humidity: 80 },
+    forecast: [
+      { day: "Ven", temp: 6, condition: "Pluie" },
+      { day: "Sam", temp: 5, condition: "Nuageux" },
+      { day: "Dim", temp: 6, condition: "Nuageux" },
+      { day: "Lun", temp: 7, condition: "Éclaircies" },
+      { day: "Mar", temp: 6, condition: "Pluie" },
+    ],
+  },
+  {
+    city: "Marseille",
+    current: { temp: 12, condition: "Soleil", wind: 22, humidity: 55 },
+    forecast: [
+      { day: "Ven", temp: 12, condition: "Soleil" },
+      { day: "Sam", temp: 11, condition: "Soleil" },
+      { day: "Dim", temp: 10, condition: "Éclaircies" },
+      { day: "Lun", temp: 11, condition: "Soleil" },
+      { day: "Mar", temp: 12, condition: "Vent" },
+    ],
+  },
+  {
+    city: "Bordeaux",
+    current: { temp: 10, condition: "Pluie", wind: 15, humidity: 85 },
+    forecast: [
+      { day: "Ven", temp: 9, condition: "Pluie" },
+      { day: "Sam", temp: 10, condition: "Éclaircies" },
+      { day: "Dim", temp: 11, condition: "Soleil" },
+      { day: "Lun", temp: 10, condition: "Nuageux" },
+      { day: "Mar", temp: 9, condition: "Pluie" },
+    ],
+  },
+  {
+    city: "Lille",
+    current: { temp: 5, condition: "Brouillard", wind: 10, humidity: 90 },
+    forecast: [
+      { day: "Ven", temp: 4, condition: "Pluie" },
+      { day: "Sam", temp: 4, condition: "Nuageux" },
+      { day: "Dim", temp: 5, condition: "Pluie" },
+      { day: "Lun", temp: 6, condition: "Nuageux" },
+      { day: "Mar", temp: 5, condition: "Brouillard" },
+    ],
+  },
+  {
+    city: "Nantes",
+    current: { temp: 9, condition: "Nuageux", wind: 25, humidity: 78 },
+    forecast: [
+      { day: "Ven", temp: 9, condition: "Pluie" },
+      { day: "Sam", temp: 8, condition: "Pluie" },
+      { day: "Dim", temp: 10, condition: "Éclaircies" },
+      { day: "Lun", temp: 11, condition: "Soleil" },
+      { day: "Mar", temp: 10, condition: "Nuageux" },
+    ],
+  },
+  {
+    city: "Strasbourg",
+    current: { temp: 3, condition: "Neige", wind: 5, humidity: 88 },
+    forecast: [
+      { day: "Ven", temp: 2, condition: "Neige" },
+      { day: "Sam", temp: 1, condition: "Glace" },
+      { day: "Dim", temp: 3, condition: "Nuageux" },
+      { day: "Lun", temp: 4, condition: "Éclaircies" },
+      { day: "Mar", temp: 3, condition: "Neige" },
+    ],
+  },
+  {
+    city: "Toulouse",
+    current: { temp: 11, condition: "Éclaircies", wind: 14, humidity: 65 },
+    forecast: [
+      { day: "Ven", temp: 10, condition: "Nuageux" },
+      { day: "Sam", temp: 12, condition: "Soleil" },
+      { day: "Dim", temp: 13, condition: "Soleil" },
+      { day: "Lun", temp: 11, condition: "Pluie" },
+      { day: "Mar", temp: 10, condition: "Éclaircies" },
+    ],
+  },
+  {
+    city: "Nice",
+    current: { temp: 14, condition: "Soleil", wind: 10, humidity: 50 },
+    forecast: [
+      { day: "Ven", temp: 15, condition: "Soleil" },
+      { day: "Sam", temp: 14, condition: "Soleil" },
+      { day: "Dim", temp: 14, condition: "Éclaircies" },
+      { day: "Lun", temp: 13, condition: "Nuageux" },
+      { day: "Mar", temp: 14, condition: "Soleil" },
+    ],
+  },
+  {
+    city: "Montpellier",
+    current: { temp: 13, condition: "Vent", wind: 35, humidity: 58 },
+    forecast: [
+      { day: "Ven", temp: 12, condition: "Soleil" },
+      { day: "Sam", temp: 13, condition: "Vent" },
+      { day: "Dim", temp: 12, condition: "Éclaircies" },
+      { day: "Lun", temp: 14, condition: "Soleil" },
+      { day: "Mar", temp: 13, condition: "Nuageux" },
+    ],
+  },
+  {
+    city: "Brest",
+    current: { temp: 10, condition: "Pluie", wind: 45, humidity: 92 },
+    forecast: [
+      { day: "Ven", temp: 9, condition: "Tempête" },
+      { day: "Sam", temp: 10, condition: "Pluie" },
+      { day: "Dim", temp: 11, condition: "Nuageux" },
+      { day: "Lun", temp: 10, condition: "Pluie" },
+      { day: "Mar", temp: 9, condition: "Pluie" },
+    ],
+  },
+  {
+    city: "Biarritz",
+    current: { temp: 12, condition: "Orage", wind: 30, humidity: 82 },
+    forecast: [
+      { day: "Ven", temp: 11, condition: "Pluie" },
+      { day: "Sam", temp: 13, condition: "Éclaircies" },
+      { day: "Dim", temp: 14, condition: "Soleil" },
+      { day: "Lun", temp: 12, condition: "Nuageux" },
+      { day: "Mar", temp: 11, condition: "Orage" },
+    ],
+  },
+  {
+    city: "Ajaccio",
+    current: { temp: 16, condition: "Soleil", wind: 15, humidity: 45 },
+    forecast: [
+      { day: "Ven", temp: 15, condition: "Soleil" },
+      { day: "Sam", temp: 16, condition: "Soleil" },
+      { day: "Dim", temp: 17, condition: "Soleil" },
+      { day: "Lun", temp: 15, condition: "Éclaircies" },
+      { day: "Mar", temp: 14, condition: "Pluie" },
+    ],
+  },
+  {
+    city: "Londres",
+    current: { temp: 7, condition: "Bruine", wind: 20, humidity: 85 },
+    forecast: [
+      { day: "Ven", temp: 6, condition: "Pluie" },
+      { day: "Sam", temp: 5, condition: "Nuageux" },
+      { day: "Dim", temp: 7, condition: "Brouillard" },
+      { day: "Lun", temp: 8, condition: "Nuageux" },
+      { day: "Mar", temp: 7, condition: "Pluie" },
+    ],
+  },
+  {
+    city: "New York",
+    current: { temp: 2, condition: "Dégagé", wind: 25, humidity: 40 },
+    forecast: [
+      { day: "Ven", temp: 0, condition: "Soleil" },
+      { day: "Sam", temp: -2, condition: "Nuageux" },
+      { day: "Dim", temp: 1, condition: "Soleil" },
+      { day: "Lun", temp: 3, condition: "Éclaircies" },
+      { day: "Mar", temp: 2, condition: "Neige" },
+    ],
+  },
+  {
+    city: "Tokyo",
+    current: { temp: 11, condition: "Soleil", wind: 8, humidity: 45 },
+    forecast: [
+      { day: "Ven", temp: 12, condition: "Soleil" },
+      { day: "Sam", temp: 10, condition: "Nuageux" },
+      { day: "Dim", temp: 9, condition: "Pluie" },
+      { day: "Lun", temp: 11, condition: "Soleil" },
+      { day: "Mar", temp: 12, condition: "Soleil" },
+    ],
+  },
+  {
+    city: "Rome",
+    current: { temp: 13, condition: "Éclaircies", wind: 12, humidity: 60 },
+    forecast: [
+      { day: "Ven", temp: 14, condition: "Soleil" },
+      { day: "Sam", temp: 15, condition: "Soleil" },
+      { day: "Dim", temp: 13, condition: "Nuageux" },
+      { day: "Lun", temp: 12, condition: "Pluie" },
+      { day: "Mar", temp: 13, condition: "Éclaircies" },
+    ],
+  },
+  {
+    city: "Berlin",
+    current: { temp: 4, condition: "Couvert", wind: 15, humidity: 82 },
+    forecast: [
+      { day: "Ven", temp: 3, condition: "Nuageux" },
+      { day: "Sam", temp: 2, condition: "Neige" },
+      { day: "Dim", temp: 4, condition: "Pluie" },
+      { day: "Lun", temp: 5, condition: "Nuageux" },
+      { day: "Mar", temp: 4, condition: "Couvert" },
+    ],
+  },
+  {
+    city: "Madrid",
+    current: { temp: 10, condition: "Soleil", wind: 10, humidity: 35 },
+    forecast: [
+      { day: "Ven", temp: 11, condition: "Soleil" },
+      { day: "Sam", temp: 12, condition: "Soleil" },
+      { day: "Dim", temp: 12, condition: "Soleil" },
+      { day: "Lun", temp: 10, condition: "Nuageux" },
+      { day: "Mar", temp: 9, condition: "Éclaircies" },
+    ],
+  },
+  {
+    city: "Bruxelles",
+    current: { temp: 6, condition: "Gris", wind: 18, humidity: 88 },
+    forecast: [
+      { day: "Ven", temp: 5, condition: "Pluie" },
+      { day: "Sam", temp: 6, condition: "Nuageux" },
+      { day: "Dim", temp: 7, condition: "Pluie" },
+      { day: "Lun", temp: 6, condition: "Gris" },
+      { day: "Mar", temp: 5, condition: "Nuageux" },
+    ],
+  }
+];

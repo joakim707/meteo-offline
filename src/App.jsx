@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { weatherData } from "./data/weatherData";
+import WeatherCard from "./components/WeatherCard";
+import ForecastList from "./components/ForecastList";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [selectedCity, setSelectedCity] = useState(weatherData[0].city);
+
+  const cityObj =
+    weatherData.find((c) => c.city === selectedCity) || weatherData[0];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div style={appStyle}>
+      <h1>Météo Offline</h1>
+
+      <div style={buttonRow}>
+        {weatherData.map((city) => (
+          <button
+            key={city.city}
+            onClick={() => setSelectedCity(city.city)}
+            style={{
+              ...buttonStyle,
+              background:
+                selectedCity === city.city ? "#333" : "#eee",
+              color:
+                selectedCity === city.city ? "#fff" : "#000",
+            }}
+          >
+            {city.city}
+          </button>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div style={contentGrid}>
+        <WeatherCard cityObj={cityObj} />
+        <ForecastList forecast={cityObj.forecast} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+const appStyle = {
+  minHeight: "100vh",
+  padding: 20,
+  fontFamily: "Arial, sans-serif",
+  background: "#f4f6f8",
+};
+
+const buttonRow = {
+  display: "flex",
+  gap: 10,
+  marginBottom: 20,
+  flexWrap: "wrap",
+};
+
+const buttonStyle = {
+  padding: "8px 14px",
+  borderRadius: 20,
+  border: "none",
+  cursor: "pointer",
+};
+
+const contentGrid = {
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  gap: 20,
+};
