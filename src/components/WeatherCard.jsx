@@ -49,7 +49,7 @@ export default function WeatherCard({
           marginBottom: 10,
         }}
       >
-        🎯 {mood.label}
+         {mood.label}
       </span>
 
       <div className="info-row">
